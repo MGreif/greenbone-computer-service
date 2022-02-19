@@ -1,6 +1,23 @@
 # greenbone-computer-service
 Programming Exercise for Greenbone Application
 
+## Installation
+Steps to successfully start the service:
+- Add .env file conaining `MONGO_URI` with the corresponding Mongo uri to your mongo db
+- Start server using a Script
+
+
+## Scripts
+
+|name|description|
+|-----|-----|
+|`start`| start the service |
+|`start:dev`| start the service in development mode (using nodemon)|
+|`test`| run all tests inside all .test.js files |
+|`lint:check`| run eslint over the entire project (no automatic fixes) |
+|`lint:fix`| run eslint over the entire project (automatically fix fixable issues)|
+
+
 # Datamodel
 
 - macAddr
