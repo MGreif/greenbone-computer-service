@@ -11,16 +11,12 @@ const getComputers = async (filter = {}) => {
 } 
 
 const deleteComputer = async (id) => {
-  if (!id) throw new Error('No id passed')
-
   const result = await ComputerModel.deleteOne({ _id: id })
   return result
 }
 
 const updateComputer = async (id, updateData = {}) => {
-  if (!id) throw new Error('No id passed')
-
-  const result = await ComputerModel.updateOne({ _id: id }, updateData)
+  const result = await ComputerModel.updateOne({ _id: id }, { $set: updateData })
   return result
 }
 
