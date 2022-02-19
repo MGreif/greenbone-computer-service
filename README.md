@@ -3,8 +3,12 @@ Programming Exercise for Greenbone Application
 
 ## Installation
 Steps to successfully start the service:
-- Add .env file conaining `MONGO_URI` with the corresponding Mongo uri to your mongo db
+- Add .env file conaining:
+  - `MONGO_URI` - the corresponding Mongo uri to your mongo db
+  - `PORT` - The Port this service will be available on (fallback is `8000`)
 - Start server using a Script
+
+**Note** - prepend `DEBUG=service:*` to get all service logs print to console
 
 
 ## Scripts

@@ -3,7 +3,7 @@ const debug = require('debug')('service:server');
 const http = require('http');
 const app = require('./app');
 require('dotenv').config()
-const { connectMongoose } = require('./config/connectMongoose');
+const connectMongoose = require('./config/connectMongoose');
 
 const port = normalizePort(process.env.PORT || '8000');
 app.set('port', port);
