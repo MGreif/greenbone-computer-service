@@ -16,7 +16,12 @@
   "plugins": ["prettier"],
   "rules": {
     "no-multiple-empty-lines": "error",
-    "space-before-function-paren": "error"
+    "space-before-function-paren": "error",
+    "no-unused-vars": ["error",   { 
+      "argsIgnorePattern": "^_",
+      "varsIgnorePattern": "^_",
+      "caughtErrorsIgnorePattern": "^_",
+    }]
   },
   "ignorePatterns": ["./**/*.test.ts", "./node_modules/**/*"]
 }
