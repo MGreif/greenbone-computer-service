@@ -3,10 +3,11 @@ const ComputerService = require("../services/computer.service")
 
 const createComputer = async (req, res, next) => {
   try {
-
     const { body } = req
     // I am passing all body params because mongoose will handle which properties are used and which are not
     const result = await ComputerService.createComputer(body)
+    // At this point a employeeAbbreviation is definetely given. If not the ComputerService.createComputer wouldve thrown an error
+    await ComputerService.checkAndNotifyIfNecessary(body.employeeAbbreviation)
     res.json(result)
   } catch (error) {
     next(error)

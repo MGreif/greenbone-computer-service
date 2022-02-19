@@ -1,7 +1,7 @@
 
+require('dotenv').config()
 const http = require('http');
 const app = require('./app');
-require('dotenv').config()
 const connectMongoose = require('./config/connectMongoose');
 const { logger } = require('./config/logger');
 

@@ -1,4 +1,5 @@
 const ComputerModel = require("../models/computer.model")
+const sendNotification = require("../utils/sendNotification")
 
 const createComputer = async (computerData = {}) => {
   const result = await ComputerModel.create(computerData)
@@ -20,4 +21,12 @@ const updateComputer = async (id, updateData = {}) => {
   return result
 }
 
-module.exports = { createComputer, getComputers, deleteComputer, updateComputer }
+const checkAndNotifyIfNecessary = async (employeeAbbreviation) => {
+  const allocatedComputers = await getComputers({ employeeAbbreviation })
+
+  if (allocatedComputers.length >= 3) {
+    await sendNotification(employeeAbbreviation, allocatedComputers.length)
+  }
+}
+
+module.exports = { createComputer, getComputers, deleteComputer, updateComputer, checkAndNotifyIfNecessary }
