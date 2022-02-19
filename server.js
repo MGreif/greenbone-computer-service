@@ -1,12 +1,17 @@
 
-const app = require('./app');
 const debug = require('debug')('service:server');
 const http = require('http');
+const app = require('./app');
 require('dotenv').config()
+const { connectMongoose } = require('./config/connectMongoose');
 
 const port = normalizePort(process.env.PORT || '8000');
 app.set('port', port);
 
+connectMongoose().catch(error => {
+  console.log('Failed to connect to mongodb', error)
+  process.exit(1)
+})
 
 const server = http.createServer(app);
 
