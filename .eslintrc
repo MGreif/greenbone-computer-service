@@ -14,5 +14,9 @@
       "eslint:recommended"
   ],
   "plugins": ["prettier"],
+  "rules": {
+    "no-multiple-empty-lines": "error",
+    "space-before-function-paren": "error"
+  },
   "ignorePatterns": ["./**/*.test.ts", "./node_modules/**/*"]
 }
