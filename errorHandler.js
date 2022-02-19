@@ -1,4 +1,4 @@
-const debug = require('debug')('service:error')
+const { logger } = require("./config/logger")
 
 class HttpError extends Error {  
   constructor (statusCode = '500', message = 'An Error Occurred') {
@@ -19,7 +19,7 @@ class NotFoundError extends Error {
 
 // eslint-disable-next-line no-unused-vars
 const errorHandler = (error, req, res, next) => {
-  debug(error)
+  logger.error(error)
   res.status(error.statusCode || 500).json({ success: false, error: error.message })
 }
 

@@ -1,13 +1,13 @@
 const mongoose = require('mongoose')
-const debug = require('debug')('service:mongoose')
+const { logger } = require('./logger')
 
 const connectMongoose = () => {
   const mongoUri = process.env.MONGO_URI
-  debug(mongoUri)
+  logger.debug(mongoUri)
   return mongoose.connect(mongoUri, {
     useNewUrlParser: true,
     useUnifiedTopology: true
-  }).then(() => debug('successfully established connection to mongo'))
+  }).then(() => logger.debug('successfully established connection to mongo'))
 }
 
 module.exports = connectMongoose
