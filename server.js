@@ -9,8 +9,7 @@ const port = normalizePort(process.env.PORT || '8000');
 app.set('port', port);
 
 connectMongoose().catch(error => {
-  console.log('Failed to connect to mongodb', error)
-  logger.error(error)
+  logger.error('Failed to connect to mongodb', error)
   process.exit(1)
 })
 

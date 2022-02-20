@@ -19,7 +19,7 @@ class NotFoundError extends Error {
 
 // eslint-disable-next-line no-unused-vars
 const errorHandler = (error, req, res, next) => {
-  logger.error(error)
+  logger.error('[REQUEST-ERROR]', error)
   res.status(error.statusCode || 500).json({ success: false, error: error.message })
 }
 
