@@ -9,7 +9,6 @@ const { loggerMiddleware } = require('./config/logger');
 
 const app = express();
 
-app.use(logger('combined'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());

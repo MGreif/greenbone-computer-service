@@ -17,7 +17,6 @@ const createComputer = async (req, res, next) => {
 const getComputers = async (req, res, next) => {
   try {
   const { query } = req
-  console.log(query)
   const result = await ComputerService.getComputers(query)
   res.json(result)
   } catch (error) {
@@ -29,7 +28,7 @@ const deleteComputer = async (req, res, next) => {
   try {
     const { id } = req.params
 
-    if (!id) throw new NotFoundError('No id passed')
+    if (!id) throw new NotFoundError(id)
 
     const result = await ComputerService.deleteComputer(id)
     res.json(result)
@@ -43,7 +42,7 @@ const updateComputer = async (req, res, next) => {
     const { id } = req.params
     const { body } = req
 
-    if (!id) throw new NotFoundError('No id passed')
+    if (!id) throw new NotFoundError(id)
 
     if (body.employeeAbbreviation && body.employeeAbbreviation.length !== 3) { 
       throw new HttpError(400, "The employee abbrevation should be exactly three letters")
