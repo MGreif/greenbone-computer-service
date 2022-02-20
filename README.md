@@ -4,7 +4,7 @@ Programming Exercise for Greenbone Application
 # Installation
 
 Preperation:
-- Add .env file containing:
+- Add .env file containing (or rename `.env.dummy` to `.env`):
   - `MONGO_URI` - the corresponding Mongo uri to your mongo db
   - `PORT` - The Port this service will be available on (fallback is `8000`)
   - `NOTIFY_SERVICE_HOST` - The host of the notify service
