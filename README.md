@@ -2,16 +2,21 @@
 Programming Exercise for Greenbone Application
 
 # Installation
-Steps to successfully start the service:
-- Add .env file conaining:
+
+Preperation:
+- Add .env file containing:
   - `MONGO_URI` - the corresponding Mongo uri to your mongo db
   - `PORT` - The Port this service will be available on (fallback is `8000`)
   - `NOTIFY_SERVICE_HOST` - The host of the notify service
   - `NOTIFY_SERVICE_PORT` - The port of the notify service
-- Start server using a Script
 
-**Note** - prepend `DEBUG=service:*` to get all service logs print to console
+Steps for containerization:
+- Build the Docker image `docker build . -t greenbone-application-exercise`
+- Run the Docker image `docker run --name greenbone -p 8000:8000 greenbone-application-exercise`
 
+Steps for third-party docker container
+- Pull the greenbone notification service `docker pull greenbone/exercise-admin-notification`
+- Run the greenbone notification service `docker run -p 8080:8080 greenbone/exercise-admin-notification`
 
 # Scripts
 
